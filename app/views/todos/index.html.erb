@@ -1,0 +1,29 @@
+<%= render 'navbar'%>
+<div class="container-fluid">
+
+<% @todo.each do |todo| %>
+<div class="well">
+  <div class="table-responsive">
+    <table class="table">
+
+      <tr>
+        <td> <%= todo.description %></td>
+      </tr>
+      <tr>
+        <td>  <button type="button" class="btn btn-primary">
+          <%= link_to "Crear ToDo", todos_new_path %></button></td>
+        <td>  <button type="button" class="btn btn-success">
+          <%= link_to "Mostrar ToDo", todo %></button></td>
+        <td>  <button type="button" class="btn btn-warning">
+          <%= link_to "Editar ToDo", edit_todo_path(todo), method: :get%></button></td>
+        <td>  <button type="button" class="btn btn-danger">
+          <%= link_to "Borrar ToDo", todo, method: :delete, data: { confirm: 'Esta seguro que quiere borrar este ToDo?' }%></button></td>
+
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+<% end %>
+
+</div>
